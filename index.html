@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My notes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@200;400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="https://kit.fontawesome.com/d0828abfb1.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+<header class="header">
+    <h1 class="title"><i class="fas fa-wallet"></i>Wallet</h1>
+    <p>Twój osobisty menadżer finansów</p>
+</header>
+<main class="wrapper section">
+<section class="transactions-area">
+    <h2 class="trans-title">Lista Transakcji</h2>
+    <div class="transactions"><div class="earns">
+        <h3>Przychód:</h3>
+         
+    </div>
+    <div class="expenses">
+        <h3>Wydatki:</h3>
+         
+    </div>
+</div>
+</section>
+<section class="calculate">
+<h2 class="calc-title">Dostepne srodki</h2>
+<p class="savers"><span class="money">0,00</span>zl</p>
+<div class="buttons">
+    <button class="add"><i class="fas fa-plus"></i>Dodaj transakcje</button>
+    <button class="remove-all"><i class="far fa-trash-alt"></i>Usuń wszystko</button>
+</div>
+<h2 class="style">Wybierz Styl</h2>
+    <div class="select-color">
+        <button class="light"></button>
+        <button class="dark"></button>
+    </div>
+
+</section>
+
+<main/>
+<div class="add-transaction-panel">
+    <h2 class="title-panel">Dodaj nową transakcję</h2>
+    <label for="name">Nazwa:</label>
+    <small>(podaj nazwę transakcji)</small>
+    <input type="text" id="name"></input>
+
+    <label for="amount">Kwota:</label>
+    <small>(podaj kwotę transakcji, jeśli dodajesz wydatek, postaw znak minusa na początku kwoty) </small>
+    <input type="number" id="amount">
+
+    <label for="category">Wybierz kategorię:</label>
+    <small>(wybierz kategorie [ + ] oznacza przychód, [ - ] oznacza wydatek)</small>
+    <select id="category" >
+        <option value="none" selected disabled></option>
+        <option value="income">[ + ] Przychód</option>
+        <option value="shopping">[ - ] Zakupy</option>
+        <option value="food">[ - ] Jedzenie</option>
+        <option value="cinema">[ - ] Kino</option>
+    </select>
+
+    <div class="panel-buttons">
+        <button class="save"><i class="fas fa-save"></i> Zapisz</button>
+        <button class="cancel"><i class="far fa-window-close"></i> Anuluj</button>
+    </div>
+</div>
+
+
+
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
