@@ -47,70 +47,47 @@ const deleteTransaction = e => {
 	if (e.target.matches('.fa-times')) {
 		const parent = e.target
 		let minus = parseFloat(parent.closest('div>p').textContent)
-		console.log(minus)
 		avaiableMoney = parseFloat(money.textContent)
 		money.textContent = avaiableMoney - minus
 		countEarns -= minus
 		parent.closest('.transaction').remove()
-		console.log(money)
 	}
 }
 
 const addTransaction = () => {
+	const trans = document.createElement('div')
+	trans.classList.add('transaction')
 	if (amount.value.includes('-')) {
-		const trans = document.createElement('div')
-		trans.classList.add('transaction')
 		expenses.append(trans)
-		const p = document.createElement('p')
-		p.classList.add('transaction-name')
-		trans.append(p)
-		choiceIcon()
-		const i = document.createElement('i')
-		i.classList.add('fas')
-		i.classList.add(icon)
-		p.append(i)
-		const span = document.createElement('span')
-		span.textContent = `${name.value}`
-		p.append(span)
-		const p2 = document.createElement('p')
-		p2.classList.add('transaction-amount')
-		p2.textContent = `${amount.value}zl`
-		trans.append(p2)
-		const button = document.createElement('button')
-		button.classList.add('delete')
-		p2.append(button)
-		const i2 = document.createElement('i')
-		i2.classList.add('fas', 'fa-times')
-		button.append(i2)
+
 		countExpenses += parseFloat(amount.value)
 		console.log(countExpenses)
 	} else {
-		const trans = document.createElement('div')
-		trans.classList.add('transaction')
 		earns.append(trans)
-		const p = document.createElement('p')
-		p.classList.add('transaction-name')
-		trans.append(p)
-		choiceIcon()
-		const i = document.createElement('i')
-		i.classList.add('fas')
-		i.classList.add(icon)
-		p.append(i)
-		const span = document.createElement('span')
-		span.textContent = `${name.value}`
-		p.append(span)
-		const p2 = document.createElement('p')
-		p2.classList.add('transaction-amount')
-		p2.textContent = `${amount.value}zl`
-		trans.append(p2)
-		const button = document.createElement('button')
-		button.classList.add('delete')
-		p2.append(button)
-		const i2 = document.createElement('i')
-		i2.classList.add('fas', 'fa-times')
-		button.append(i2)
+
 		countEarns += parseFloat(amount.value)
 	}
+	const p = document.createElement('p')
+	p.classList.add('transaction-name')
+	trans.append(p)
+	choiceIcon()
+	const i = document.createElement('i')
+	i.classList.add('fas')
+	i.classList.add(icon)
+	p.append(i)
+	const span = document.createElement('span')
+	span.textContent = `${name.value}`
+	p.append(span)
+	const p2 = document.createElement('p')
+	p2.classList.add('transaction-amount')
+	p2.textContent = `${amount.value}zl`
+	trans.append(p2)
+	const button = document.createElement('button')
+	button.classList.add('delete')
+	p2.append(button)
+	const i2 = document.createElement('i')
+	i2.classList.add('fas', 'fa-times')
+	button.append(i2)
 	countMyMoney()
 	name.value = ''
 	amount.value = ''
@@ -136,7 +113,6 @@ const checkInput = inputValue => {
 	})
 	checkSelected()
 	checkErrors()
-	console.log(numbersOfErrors)
 	numbersOfErrors = 0
 }
 
@@ -173,20 +149,18 @@ const choiceIcon = () => {
 const countMyMoney = () => {
 	let myMoney = countEarns + countExpenses
 	money.textContent = myMoney.toFixed(2)
-	
 }
 
-
 const changeStyleToLight = () => {
-    root.style.setProperty('--first-color', '#F9F9F9');
-    root.style.setProperty('--second-color', '#14161F');
-    root.style.setProperty('--border-color', 'rgba(0, 0, 0, .2)');
+	root.style.setProperty('--first-color', '#F9F9F9')
+	root.style.setProperty('--second-color', '#14161F')
+	root.style.setProperty('--border-color', 'rgba(0, 0, 0, .2)')
 }
 
 const changeStyleToDark = () => {
-    root.style.setProperty('--first-color', '#14161F');
-    root.style.setProperty('--second-color', '#F9F9F9');
-    root.style.setProperty('--border-color', 'rgba(255, 255, 255, .4)');
+	root.style.setProperty('--first-color', '#14161F')
+	root.style.setProperty('--second-color', '#F9F9F9')
+	root.style.setProperty('--border-color', 'rgba(255, 255, 255, .4)')
 }
 
 addBtn.addEventListener('click', openPanel)
@@ -198,6 +172,5 @@ saveBtn.addEventListener('click', e => {
 	e.preventDefault()
 	checkInput(inputs)
 })
-lightBtn.addEventListener('click', changeStyleToLight);
-darkBtn.addEventListener('click', changeStyleToDark);
-
+lightBtn.addEventListener('click', changeStyleToLight)
+darkBtn.addEventListener('click', changeStyleToDark)
